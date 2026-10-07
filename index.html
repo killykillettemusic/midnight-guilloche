@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midnight Guilloche &mdash; Late Night Deep House</title>
+<style>
+  :root {
+    --ink: #0a0a0f;
+    --ink-2: #12121a;
+    --gold: #c9a227;
+    --gold-soft: #e8d48b;
+    --cream: #f2e9d8;
+    --muted: #8a8470;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: Georgia, 'Times New Roman', serif;
+    overflow-x: hidden;
+  }
+
+  /* ---------- GUILLOCHE SVG LAYER ---------- */
+  .guilloche-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.18;
+  }
+  .guilloche-bg svg { width: 100%; height: 100%; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(201,162,39,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1.2s ease both;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 8vw, 5.5rem);
+    font-weight: normal;
+    letter-spacing: 0.04em;
+    line-height: 1.05;
+    animation: fadeUp 1.2s ease 0.15s both;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-soft);
+  }
+  .hero .sub {
+    margin-top: 1.5rem;
+    font-size: 1.05rem;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    animation: fadeUp 1.2s ease 0.3s both;
+  }
+  .cta {
+    margin-top: 2.5rem;
+    display: inline-block;
+    padding: 0.9rem 2.4rem;
+    border: 1px solid var(--gold);
+    color: var(--gold-soft);
+    text-decoration: none;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+    transition: background 0.3s, color 0.3s;
+    animation: fadeUp 1.2s ease 0.45s both;
+  }
+  .cta:hover { background: var(--gold); color: var(--ink); }
+
+  /* ---------- SECTIONS ---------- */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 6rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+  }
+  p { line-height: 1.8; color: var(--muted); font-size: 1.05rem; }
+  p + p { margin-top: 1.2rem; }
+
+  /* ---------- TRACK LIST ---------- */
+  .tracks { list-style: none; margin-top: 2.5rem; }
+  .tracks li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid rgba(201,162,39,0.15);
+    font-size: 1.05rem;
+  }
+  .tracks .num {
+    font-family: 'Courier New', monospace;
+    color: var(--gold);
+    margin-right: 1.2rem;
+    font-size: 0.85rem;
+  }
+  .tracks .dur { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.1em; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+    border-top: 1px solid rgba(201,162,39,0.15);
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+  }
+  footer .sig { color: var(--gold); margin-bottom: 0.8rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .tracks li { flex-direction: column; gap: 0.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- GUILLOCHE PATTERN LAYER -->
+<div class="guilloche-bg" aria-hidden="true">
+  <svg viewBox="0 0 1200 1600" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <pattern id="rose" x="0" y="0" width="300" height="300" patternUnits="userSpaceOnUse">
+        <g fill="none" stroke="#c9a227" stroke-width="0.6">
+          <circle cx="150" cy="150" r="20"/>
+          <circle cx="150" cy="150" r="40"/>
+          <circle cx="150" cy="150" r="60"/>
+          <circle cx="150" cy="150" r="80"/>
+          <circle cx="150" cy="150" r="100"/>
+          <circle cx="150" cy="150" r="120"/>
+          <circle cx="150" cy="150" r="140"/>
+          <g stroke-width="0.4">
+            <path d="M150,10 Q170,150 150,290 Q130,150 150,10"/>
+            <path d="M150,10 Q190,150 150,290 Q110,150 150,10"/>
+            <path d="M150,10 Q210,150 150,290 Q90,150 150,10"/>
+            <path d="M150,10 Q230,150 150,290 Q70,150 150,10"/>
+            <path d="M150,10 Q250,150 150,290 Q50,150 150,10"/>
+            <path d="M150,10 Q270,150 150,290 Q30,150 150,10"/>
+            <path d="M150,10 Q290,150 150,290 Q10,150 150,10"/>
+          </g>
+        </g>
+      </pattern>
+      <pattern id="straight" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+        <g fill="none" stroke="#c9a227" stroke-width="0.5">
+          <path d="M0,60 Q30,20 60,60 T120,60"/>
+          <path d="M0,60 Q30,100 60,60 T120,60"/>
+          <path d="M0,30 Q30,-10 60,30 T120,30"/>
+          <path d="M0,90 Q30,50 60,90 T120,90"/>
+        </g>
+      </pattern>
+    </defs>
+    <rect width="1200" height="1600" fill="url(#rose)"/>
+    <rect width="1200" height="1600" fill="url(#straight)" opacity="0.5"/>
+  </svg>
+</div>
+
+<header class="hero">
+  <p class="eyebrow">Late Night Sessions</p>
+  <h1>Midnight<br><em>Guilloche</em></h1>
+  <p class="sub">Deep house, cut on the rose engine</p>
+  <a class="cta" href="#listen">Listen</a>
+</header>
+
+<section id="listen">
+  <p class="section-label">01 &mdash; The Set</p>
+  <h2>Tracks</h2>
+  <p>Four cuts for the hours when the city goes quiet and the bass takes over.</p>
+  <ul class="tracks">
+    <li><span><span class="num">01</span> Rose Engine</span><span class="dur">6:42</span></li>
+    <li><span><span class="num">02</span> Breguet Dial</span><span class="dur">7:15</span></li>
+    <li><span><span class="num">03</span> Straight Line</span><span class="dur">6:58</span></li>
+    <li><span><span class="num">04</span> Faberg&eacute; Blue</span><span class="dur">8:03</span></li>
+  </ul>
+</section>
+
+<section>
+  <p class="section-label">02 &mdash; The Craft</p>
+  <h2>Why Guilloche</h2>
+  <p>Guilloch&eacute; is engraving done by machine &mdash; a rose engine or straight-line lathe tracing interlocking curves into metal. Each pattern is a single continuous line, impossible to counterfeit by hand. It decorated Faberg&eacute; eggs, Breguet watch dials, and the borders of banknotes.</p>
+  <p>Deep house works the same way. A few elements &mdash; a kick, a bassline, a filtered chord &mdash; repeated and interlocked until the pattern itself becomes the point. No ornament for ornament's sake. Just precision, repetition, and the groove underneath.</p>
+</section>
+
+<section>
+  <p class="section-label">03 &mdash; The Hours</p>
+  <h2>When to Play It</h2>
+  <p>After midnight. When the last train has gone and the only light left is the one under the door. This is music for empty kitchens, slow drives, and the space between one thought and the next.</p>
+</section>
+
+<footer>
+  <p class="sig">&#9670; Midnight Guilloche &mdash; Est. 2026</p>
+  <p>All tracks produced &amp; mixed by hand. No samples. No shortcuts.</p>
+</footer>
+
+</body>
+</html>
